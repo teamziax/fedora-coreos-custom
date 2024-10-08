@@ -1,0 +1,25 @@
+name: "Build image: FCOS Custom"
+
+env:
+  IMAGE_NAME: "ziax-fcos-custom"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Build container image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          context: ${{ env.IMAGE_NAME }}
+          containerfiles: Containerfile
+          image: ${{ env.IMAGE_NAME }}
+          layers: false
+          oci: true
