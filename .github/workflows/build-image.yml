@@ -1,8 +1,5 @@
 name: "Build image: FCOS Custom"
 
-env:
-  IMAGE_NAME: "ziax-fcos-custom"
-
 on:
   push:
     branches:
@@ -18,8 +15,7 @@ jobs:
       - name: Build container image
         uses: redhat-actions/buildah-build@v2
         with:
-          context: ${{ env.IMAGE_NAME }}
           containerfiles: Containerfile
-          image: ${{ env.IMAGE_NAME }}
+          image: ziax-fcos-custom
           layers: false
           oci: true
