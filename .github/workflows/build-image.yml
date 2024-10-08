@@ -17,7 +17,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: Containerfile
-          image: ziax-fcos-custom
+          image: fedora-coreos-custom
           layers: false
           oci: true
 
