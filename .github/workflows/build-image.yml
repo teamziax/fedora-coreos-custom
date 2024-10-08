@@ -20,8 +20,9 @@ jobs:
           image: ziax-fcos-custom
           layers: false
           oci: true
+
       - name: Push Image
-        uses: ./
+        uses: redhat-actions/push-to-registry@v2
         id: push
         with:
           image: ${{ steps.build-image.outputs.image }}
